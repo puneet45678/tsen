@@ -1,0 +1,71 @@
+{
+  "executionRoleArn": "arn:aws:iam::530762056989:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+
+      "portMappings": [
+        {
+          "hostPort": 3567,
+          "protocol": "tcp",
+          "containerPort": 3567
+        }
+      ],
+      "cpu": 0,
+      "environment": [
+        {
+          "name": "MYSQL_CONNECTION_URI",
+          "value": "${MYSQL_CONNECTION_URI}"
+        },
+        {
+          "name": "MYSQL_TABLE_NAMES_PREFIX",
+          "value": "${MYSQL_TABLE_NAMES_PREFIX}"
+        }
+      ],
+      "memory": 256,
+      "image": "530762056989.dkr.ecr.ap-south-1.amazonaws.com/ikarus-nest/dev/auth-core:latest",
+      "healthCheck": {
+        "retries": 5,
+        "command": [
+          "CMD-SHELL",
+          "bash -c 'exec 3<>/dev/tcp/127.0.0.1/3567 && echo -e \"GET /hello HTTP/1.1\\r\\nhost: 127.0.0.1:3567\\r\\nConnection: close\\r\\n\\r\\n\" >&3 && cat <&3 | grep \"Hello\"'"
+        ],
+        "timeout": 5,
+        "interval": 10
+      },
+      "essential": true,
+      "name": "ikarus-nest-dev-auth-core"
+    },
+    {
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
+      "cpu": 0,
+      "memory": 256,
+
+      "image": "${AUTH_IMAGE}",
+      "dependsOn": [
+        {
+          "containerName": "ikarus-nest-dev-auth-core",
+          "condition": "HEALTHY"
+        }
+      ],
+      "essential": true,
+      "name": "ikarus-nest-dev-auth-backend"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "300",
+  "taskRoleArn": "arn:aws:iam::530762056989:role/ecsTaskExecutionRole",
+  "requiresCompatibilities": [
+
+    "EC2"
+  ],
+  "cpu": "512",
+  "volumes": [],
+  "family": "ikarus-nest-dev-auth"
+}
+

@@ -1,0 +1,14 @@
+.env
+.idea
+**__pycache__**
+temp
+.yaml
+venv/
+test.ipynb
+.vscode
+(enc)temp.stl
+user.log
+githubactions.txt
+**log**
+**logs/**
+**secrets.yaml**

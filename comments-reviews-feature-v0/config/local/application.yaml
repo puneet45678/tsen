@@ -1,0 +1,73 @@
+HOST: localhost
+HOST_CORE: 15.207.107.101
+
+logging:
+  log_format: '[%(asctime)s] %(levelname)s:%(name)s %(message)s'
+  log_file: "comment.log"
+
+aws:
+  s3:
+    bucket: "testnestmodel"
+    region: "ap-south-1"
+    path-region: "s3.ap-south-1"
+
+ports:
+  campaign_port: "8002"
+  user_port: "8001"
+  auth_port: "8000"
+  supertokens_core_port: "3567"
+  website_port: "3000"
+  notification_port: "8006"
+  comment_port: "8007"
+
+auth:
+  app_name: Auth
+  api_domain: http://localhost:8000 
+  website_domain: http://localhost:3000
+  api_base_path: /auth
+  website_base_path: /auth
+  supertokens_core_uri: http://172.18.0.2:3567
+  user_management_dashboard_api_key : supertoken
+
+uploadcare:
+  uploadcare_url_parameter : ucarecdn.com
+  uploadcare_file_size:
+    file_size : 5 # In MB  
+    
+cache:
+  jwks_cached_key: jwks_response
+
+cors: 
+  allowed_origins:
+    - http://localhost:3000
+    - http://localhost:5173
+    - http://localhost:3001
+  allowed_methods:
+    - GET 
+    - POST 
+    - PUT 
+    - HEAD
+    - OPTIONS
+    - DELETE
+  allowed_headers:
+    - Content-Type
+    - Access-Control-Allow-Headers
+    - Authorization
+    - Access-Control-Allow-Origin    
+
+
+excluded_apis:
+  - path: /api/v1/replies/{replyId}
+    method: GET  
+  - path: /api/v1/comments/{commentId}/replies
+    method: GET
+  - path: /api/v1/comments/{commentId}
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/comments
+    method: GET   
+  - path: /api/v1/reviews/model/{modelId}
+    method: GET
+  - path: /api/v1/comments
+    method: POST
+  - path: /api/v1/replies
+    method: POST

@@ -1,0 +1,7 @@
+.gitignore
+Dockerfile
+docker-compose.yaml
+.idea
+__pycache__
+test.py
+slicer-base-image

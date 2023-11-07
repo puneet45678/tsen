@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #333;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #2992bf 3px solid;
+            text-align: center;
+        }
+
+        .header img {
+            max-height: 60px;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .main {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            color: #ffffff;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #2992bf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2271a2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://ik.imagekit.io/iqav4e4h9/Header_logo_L.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676445154029" alt="Company Logo">
+            <h1>Ikarus Nest</h1>
+        </div>
+        <div class="main">
+            <h2>Hello, {{ username }}!</h2>
+            <p>It seems you left some items in your cart on {{ last_updated_date }} i.e it was abandoned since {{abandoned_since}} minutes. Don't worry, we saved them for you:</p>
+            <ul>
+                {% for item in item_details %}
+                    <li>Id: {{item.ItemId}} Item Type: {{ item.itemType }} (Quantity: {{ item.quantity }}, Price: {{item.currency}} {{item.price}})</li>
+                {% endfor %}
+            </ul>
+            <p>Click the button below to complete your purchase:</p>
+            <a href="{{ cart_url }}" class="btn">Return to Cart</a>
+        </div>
+        <div class="footer">
+            <p>&copy;  2023  Ikarus Nest. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+

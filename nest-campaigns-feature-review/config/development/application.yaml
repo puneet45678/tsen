@@ -1,0 +1,169 @@
+#logging:
+#  log_format: '[%(asctime)s] %(levelname)s:%(name)s %(message)s'
+#  log_file: "campaign.log"
+#
+#aws:
+#  s3:
+#    bucket: "test-blog-nest"
+#    region: "ap-south-1"
+#    path-region: "s3.ap-south-1"
+#
+#encryption:
+#  service:
+#    encrypt_url_localhost: "127.0.0.1:5000/campaigns"
+#    path: "routes/tmp"
+#    api_version: "v1"
+#
+#auth:
+#  app_name: Auth
+#  api_domain: https://auth.dev.ikarusnest.org
+#  website_domain: https://app.dev.ikarusnest.org
+#  api_base_path: /auth
+#  website_base_path: /auth
+#  supertokens_core_uri: http://172.18.0.2:3567
+#  user_management_dashboard_api_key : supertoken
+#
+#uploadcare:
+#  uploadcare_url_parameter : ucarecdn.com
+#  uploadcare_file_size:
+#    file_size : 5 # In MB
+#
+#version:
+#  api_version : "v1"
+#
+## uploadcare-file-size:
+##   file-size : 5 # In MB
+#
+#cors:
+#  allowed_origins:
+#    - https://app.dev.ikarusnest.org
+#    - https://auth.dev.ikarusnest.org
+#    - https://campaign.dev.ikarusnest.org
+#
+#
+#  allowed_methods:
+#    - GET
+#    - POST
+#    - PUT
+#    - HEAD
+#    - OPTIONS
+#    - DELETE
+#  allowed_headers:
+#    - Content-Type
+#    - Access-Control-Allow-Headers
+#    - Authorization
+#    - Access-Control-Allow-Origin
+#
+#size:
+#  pagesize : 8
+
+HOST: dev.ikarusnest.org
+HOST_CORE: 15.207.107.101
+
+logging:
+  log_format: "[%(asctime)s] %(levelname)s:%(name)s %(message)s"
+  log_file: "campaign.log"
+
+aws:
+  s3:
+    bucket: "testnestmodel"
+    region: "ap-south-1"
+    path-region: "s3.ap-south-1"
+
+encryption:
+  service:
+    encrypt_url_localhost: "127.0.0.1:5000/campaigns"
+    path: "routes/tmp"
+    api_version: "v1"
+
+ports:
+  campaign_port: "8002"
+  user_port: "8001"
+  auth_port: "8000"
+  supertokens_core_port: "3567"
+  website_port: "3000"
+  notification_port: "8006"
+
+auth:
+  app_name: Auth
+  api_domain: https://auth.dev.ikarusnest.org
+  website_domain: https://app.dev.ikarusnest.org
+  api_base_path: /auth
+  website_base_path: /auth
+  supertokens_core_uri: http://172.18.0.2:3567
+  user_management_dashboard_api_key: supertoken
+
+uploadcare:
+  uploadcare_url_parameter: ucarecdn.com
+  uploadcare_file_size:
+    file_size: 5 # In MB
+
+version:
+  api_version: "v1"
+
+# uploadcare-file-size:
+#   file-size : 5 # In MB
+
+cors:
+  allowed_origins:
+    - https://app.dev.ikarusnest.org
+    - https://auth.dev.ikarusnest.org
+    - https://campaign.dev.ikarusnest.org
+
+  allowed_methods:
+    - GET
+    - POST
+    - PUT
+    - HEAD
+    - OPTIONS
+    - DELETE
+  allowed_headers:
+    - Content-Type
+    - Access-Control-Allow-Headers
+    - Authorization
+    - Access-Control-Allow-Origin
+
+size:
+  pagesize: 8
+
+excluded_apis:
+  - path: /api/v1/campaigns/create-template
+    method: OPTIONS
+  - path: /api/v1/campaigns/display
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/display
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/details
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/display-picture
+    method: GET
+  - path: /api/v1/upload_url/
+    method: GET
+  - path: /api/v2/new/test/campaigns/display
+    method: GET
+  - path: /api/v1/state/campaign/reject
+    method: POST
+  # - path: /api/v1/state/campaign/approve
+  #   method: POST
+  # - path: /api/v1/models/states/admin
+  #   method: GET
+  - path: /models/{modelId}/reject
+    method: POST
+  - path: /models/{modelId}/approve
+    method: POST
+  - path: /models/{modelId}/make_private
+    method: POST
+  - path: /models/{modelId}/delete
+    method: POST
+  - path: /api/v1/campaigns/{campaignId}/display
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/field/{field}
+    method: GET
+  - path: /api/v1/campaigns/{campaignId}/display
+    method: GET
+  - path: /api/v1/campaigns/ended_prematurely
+    method: GET
+  - path: /api/v1/models/{modelId}
+    method: GET
+  - path: /api/v1/all-models
+    method: GET

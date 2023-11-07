@@ -1,0 +1,11 @@
+venv
+secrets.yaml
+.idea
+__pycache__/
+test.py
+test1.stl
+volumes
+temp
+ikarus-nest-dev-ssh-key.pem
+nest-user.pem
+logs/

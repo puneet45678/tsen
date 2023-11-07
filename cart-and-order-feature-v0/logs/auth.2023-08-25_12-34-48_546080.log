@@ -1,0 +1,63 @@
+2023-08-25 12:34:48.541 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api GET http://localhost:8004/api/v1/cart?page_size=10&page_number=1 is 2707.0226669311523 ms
+2023-08-25 12:35:09.331 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-13558068722633560741
+2023-08-25 12:35:09.332 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 12:35:09.337 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 12:35:09.339 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+2023-08-25 12:35:09.342 | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1692947109.3425782 with request id ikarus-13558068722633560741
+2023-08-25 12:35:09.770 | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:403 | Given Item is of type Item_type.TIER 
+2023-08-25 12:35:10.625 | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:431 | Cart created with cartId:64e852a67ba9e9230252c720 , for itemId:111
+2023-08-25 12:35:10.628 | INFO | controllers.cart_controllers | add_to_cart | cart_controllers.py:432 | /api/v1/111 Api Executed for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 12:35:10.631 | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1692947110.6318247, elapsed time: 1.29 seconds with request id ikarus-13558068722633560741
+2023-08-25 12:35:10.633 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 1291.3227081298828 ms
+2023-08-25 12:35:14.808 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-10748696422085317290
+2023-08-25 12:35:14.809 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 12:35:14.813 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 12:35:14.815 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+2023-08-25 12:35:14.816 | DEBUG | main | logging_middleware | main.py:113 | Request GET /api/v1/cart started at 1692947114.8162563 with request id ikarus-10748696422085317290
+2023-08-25 12:35:14.818 | INFO | controllers.cart_controllers | get_cart_details | cart_controllers.py:15 | /api/v1/cart Api called for getting cart details for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 12:35:15.221 | INFO | services.m2m_calls | get_tier_details_list_from_campaign_service | m2m_calls.py:77 | Getting model details from model service with url: http://localhost:8002/api/v1/campaigns/tiers
+2023-08-25 12:35:15.224 | DEBUG | services.m2m_calls | get_tier_details_list_from_campaign_service | m2m_calls.py:78 | Calling model service with url: http://localhost:8002/api/v1/campaigns/tiers
+2023-08-25 12:35:26.524 | DEBUG | controllers.cart_controllers | get_cart_details | cart_controllers.py:91 | Cart details received successfully for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 12:35:26.525 | INFO | controllers.cart_controllers | get_cart_details | cart_controllers.py:92 | /api/v1/cart Api called Executed for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 12:35:26.528 | DEBUG | main | logging_middleware | main.py:119 | Request GET /api/v1/cart finished at 1692947126.5288537, elapsed time: 11.71 seconds with request id ikarus-10748696422085317290
+2023-08-25 12:35:26.531 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api GET http://localhost:8004/api/v1/cart?page_size=10&page_number=1 is 11715.487241744995 ms
+2023-08-25 12:39:08.344 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-10993752605861630868
+2023-08-25 12:39:08.347 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 12:39:08.489 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 12:39:08.491 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+2023-08-25 12:39:08.493 | DEBUG | main | logging_middleware | main.py:113 | Request PUT /api/v1/cart started at 1692947348.4932337 with request id ikarus-10993752605861630868
+2023-08-25 12:39:08.496 | INFO | controllers.cart_controllers | put_item_in_cart | cart_controllers.py:443 | /api/v1/cart Api called for updating tier of userId:64d9b2eab6a4174a1e6df918 and itemId:111
+2023-08-25 12:39:12.008 | DEBUG | controllers.cart_controllers | put_item_in_cart | cart_controllers.py:453 | cartId => 64e852a67ba9e9230252c720 recieved succesfully for usedId:64d9b2eab6a4174a1e6df918
+2023-08-25 12:39:12.423 | DEBUG | controllers.cart_controllers | put_item_in_cart | cart_controllers.py:462 | Item already present in cart for itemId:111 , cart_id:64e852a67ba9e9230252c720
+2023-08-25 12:39:12.426 | DEBUG | main | logging_middleware | main.py:119 | Request PUT /api/v1/cart finished at 1692947352.4262595, elapsed time: 3.93 seconds with request id ikarus-10993752605861630868
+2023-08-25 12:39:12.428 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api PUT http://localhost:8004/api/v1/cart is 3935.023546218872 ms
+2023-08-25 14:35:01.529 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-9375675556003606205
+2023-08-25 14:35:01.532 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 14:36:11.474 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-13188558048910143235
+2023-08-25 14:36:11.476 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 14:36:11.481 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 14:36:11.486 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+2023-08-25 14:36:11.487 | DEBUG | main | logging_middleware | main.py:113 | Request GET /api/v1/orders started at 1692954371.487774 with request id ikarus-13188558048910143235
+2023-08-25 14:36:11.492 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:101 | /api/v1/my-orders Api called to get the order details for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 14:36:16.144 | INFO | services.m2m_calls | get_tier_details_list_from_campaign_service | m2m_calls.py:77 | Getting model details from model service with url: http://localhost:8002/api/v1/campaigns/tiers
+2023-08-25 14:36:16.146 | DEBUG | services.m2m_calls | get_tier_details_list_from_campaign_service | m2m_calls.py:78 | Calling model service with url: http://localhost:8002/api/v1/campaigns/tiers
+2023-08-25 14:36:31.037 | INFO | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:21 | Getting model details from model service with url: http://localhost:8002/api/v1/models
+2023-08-25 14:36:31.039 | DEBUG | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:22 | Calling model service with url: http://localhost:8002/api/v1/models
+2023-08-25 14:36:42.313 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:162 | Order details recieved succesfully
+2023-08-25 14:36:42.316 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:163 | /api/v1/my-orders Api Executed to get the order details for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 14:36:42.322 | DEBUG | main | logging_middleware | main.py:119 | Request GET /api/v1/orders finished at 1692954402.3220406, elapsed time: 30.83 seconds with request id ikarus-13188558048910143235
+2023-08-25 14:36:42.323 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api GET http://localhost:8004/api/v1/orders?page_size=10&page_number=1 is 30836.206674575806 ms
+2023-08-25 14:37:54.572 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-12708838802134167402
+2023-08-25 14:37:54.574 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 14:37:54.577 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 14:37:54.579 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+2023-08-25 14:37:54.580 | DEBUG | main | logging_middleware | main.py:113 | Request GET /api/v1/purchases/models started at 1692954474.5802062 with request id ikarus-12708838802134167402
+2023-08-25 14:37:56.364 | INFO | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:21 | Getting model details from model service with url: http://localhost:8002/api/v1/models
+2023-08-25 14:37:56.364 | DEBUG | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:22 | Calling model service with url: http://localhost:8002/api/v1/models
+2023-08-25 14:38:16.358 | DEBUG | controllers.cart_controllers | get_purchased_models | cart_controllers.py:367 | Processed Models data recieved succesfully for userId :64d9b2eab6a4174a1e6df918
+2023-08-25 14:38:16.360 | DEBUG | main | logging_middleware | main.py:119 | Request GET /api/v1/purchases/models finished at 1692954496.3608198, elapsed time: 21.78 seconds with request id ikarus-12708838802134167402
+2023-08-25 14:38:16.362 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api GET http://localhost:8004/api/v1/purchases/models?page_size=10&page_number=1 is 21782.41729736328 ms
+2023-08-25 14:50:26.836 | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-9899967604010283610
+2023-08-25 14:50:26.837 | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+2023-08-25 14:50:26.940 | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+2023-08-25 14:50:26.942 | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth

@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="Himanshu">
+    <preConditions onFail="MARK_RAN">
+        <not>
+            <tableExists tableName="students"/>
+        </not>
+    </preConditions>
+    <createTable tableName="students">
+        <column name="roll number" type="varchar(32)"/>
+    </createTable>
+    </changeSet>
+
+    <changeSet id="1" author="Akhil">
+    <addColumn tableName="students">
+        <column name="name" type="varchar(32)"/>
+    </addColumn>
+    </changeSet>
+   <changeSet id="8" author="martin">
+  <modifyDataType tableName="students" columnName="name" newDataType="int"/>
+</changeSet>
+
+</databaseChangeLog>

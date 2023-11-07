@@ -1,0 +1,7 @@
+2023-08-25 16:32:45.097 | DEBUG | services.m2m_calls | get_tier_details_list_from_campaign_service | m2m_calls.py:78 | Calling model service with url: http://localhost:8002/api/v1/campaigns/tiers
+2023-08-25 16:32:55.287 | INFO | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:21 | Getting model details from model service with url: http://localhost:8002/api/v1/models
+2023-08-25 16:32:55.289 | DEBUG | services.m2m_calls | get_model_details_list_from_model_service | m2m_calls.py:22 | Calling model service with url: http://localhost:8002/api/v1/models
+2023-08-25 16:33:04.271 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:162 | Order details recieved succesfully
+2023-08-25 16:33:04.274 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:163 | /api/v1/my-orders Api Executed to get the order details for userId:64d9b2eab6a4174a1e6df918
+2023-08-25 16:33:04.291 | DEBUG | main | logging_middleware | main.py:119 | Request GET /api/v1/orders finished at 1692961384.2913175, elapsed time: 20.86 seconds with request id ikarus-13626271476149160531
+2023-08-25 16:33:04.294 | INFO | main | add_process_time_header | main.py:130 | Time to execute the api GET http://localhost:8004/api/v1/orders?page_size=10&page_number=1 is 20862.614631652832 ms

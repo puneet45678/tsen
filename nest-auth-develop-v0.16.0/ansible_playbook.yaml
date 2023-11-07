@@ -1,0 +1,136 @@
+---
+- name: Setup AWS ECS Infrastructure with existing resources
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+    # Check if ECR Repository already exists
+
+    - name: Check for existing ECR Repository
+      command: "aws ecr describe-repositories --repository-names {{ansible_env.ECR_REPOSITORY}}"
+      register: existing_ecr_repo
+      ignore_errors: true
+
+
+    # Create ECR Repository only if it doesn't exist
+    - name: Create ECR Repository
+      community.aws.ecs_ecr:
+        name: "{{ansible_env.ECR_REPOSITORY}}"
+        region: "ap-south-1"
+      when: existing_ecr_repo.repositories|default([]) | length == 0
+      register: ecr_repo
+
+    - name: Debug ECR Repository
+      debug:
+        var: ecr_repo
+
+
+    # Fetch subnets for the given VPC
+    - name: Fetch subnets for VPC
+      amazon.aws.ec2_vpc_subnet_info:
+        filters:
+          vpc-id: "vpc-00ed7f7fa4a2d7f77"
+        region: "ap-south-1"
+      register: vpc_subnets
+
+
+    # Check if the Security Group already exists
+    - name: Check for existing Security Group
+      amazon.aws.ec2_security_group_info:
+        filters:
+          group_name:
+          - custom-sg-for-auth-backend
+        region: "ap-south-1"
+      register: existing_sg
+
+
+    # Create Security Group only if it doesn't exist
+    - name: Create Security Group for ECS
+      amazon.aws.ec2_group:
+        name: custom-sg-for-auth-backend
+        description: Security Group for ECS
+        vpc_id: "vpc-00ed7f7fa4a2d7f77"
+        rules:
+          - proto: tcp
+            ports:
+              - "22"
+              - "80"
+              - "443"
+            cidr_ip: 0.0.0.0/0
+        region: "ap-south-1"
+      when: existing_sg.group_name|default([]) | length == 0  # Create only if not exists
+      register: ecs_sg
+
+
+    # Check if Launch Configuration already exists
+    - name: Check for existing Launch Configuration
+      community.aws.ec2_lc_info:
+        name: auth-ecs-launch-configuration
+        region: "ap-south-1"
+      register: existing_lc
+      ignore_errors: yes
+
+    # Create Launch Configuration only if it doesn't exist
+    - name: Create Launch Configuration
+      community.aws.autoscaling_launch_config:
+        name: auth-ecs-launch-configuration
+        image_id: "ami-054c337ee5048c313"
+        instance_type: t2.medium
+        assign_public_ip: true
+        key_name: "ikarus-nest-dev-ssh-key"
+        security_groups: "[{{ ecs_sg.group_id }}]"
+        region: "ap-south-1"
+      register: ecs_lc
+      when: existing_lc.results|default([]) | length == 0
+
+    
+
+    # Check if ASG already exists
+    - name: Check for existing Auto Scaling Group
+      community.aws.ec2_asg_info:
+        name: "my-asg"
+        region: "ap-south-1"
+      register: existing_asg
+      ignore_errors: yes
+
+
+    # Create Auto Scaling Group only if it doesn't exist
+    - name: Create Auto Scaling Group
+      amazon.aws.autoscaling_group:
+        name: "my-asg"
+        launch_config_name: "{{ ecs_lc.name }}"
+        min_size: 1
+        max_size: 1
+        desired_capacity: 1
+        vpc_zone_identifier: "{{ vpc_subnets.subnets | map(attribute='id') | list }}"
+        tags:
+          - key: Cams-Ikarus
+            value: ECS-Instance
+            propagate_at_launch: true
+        region: "ap-south-1"
+      when: existing_asg.results|default([]) | length == 0
+    
+    
+    # # Check if ECS Cluster already exists
+    # - name: Check for existing ECS Cluster
+    #   amazon.aws.ecs_cluster_info:
+    #     cluster_name: "test-cluster-from-ansible"
+    #     region: "ap-south-1"
+    #   register: existing_ecs_cluster
+    #   ignore_errors: yes
+
+
+    # Create ECS Cluster only if it doesn't exist
+    - name: Create ECS Cluster
+      community.aws.ecs_cluster:
+        name: "test-cluster-from-nest"
+        state: present
+        region: "ap-south-1"
+      # when: existing_ecs_cluster.clusters|default([]) | length == 0
+      register: ecs_cluster
+
+    - name: Debug ECS Cluster
+      debug:
+        var: ecs_cluster
+
+...

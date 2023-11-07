@@ -1,0 +1,73 @@
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
+map $target $target_no_protocol {
+    ~^https?://(.+) $1;
+}
+
+server {
+
+    proxy_read_timeout 9999;
+    proxy_connect_timeout 9999;
+    proxy_send_timeout 9999; 
+
+
+    access_log /var/log/nginx/access_debug.log debug_extended;
+    # error_log /var/log/nginx/error_debug.log debug;
+
+    listen 80;
+    server_name ~^(?<subdomain>.+)\.slicer\.ikarusnest\.org$;
+
+    location / {
+        # Perform an authorization subrequest to the internal API endpoint
+        auth_request /get_upstream_ip_port;
+           
+        auth_request_set $target $upstream_http_x_slicer_url;
+
+        error_page 401 = @error401;
+        error_page 403 = @error403;
+        #resolver 8.8.8.8;
+        # # Use the captured IP address and port for the reverse proxy
+  
+        add_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Original-URI $request_uri;
+        proxy_set_header Cookie $http_cookie;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_pass $target;
+}
+
+
+    location = /get_upstream_ip_port {
+        internal;
+        #resolver 8.8.8.8;
+        set $api_url "https://prusa.dev.ikarusnest.org/gcp/cloud-run-url?subdomain=$subdomain";
+        proxy_pass $api_url;
+        proxy_pass_request_body off;
+        proxy_set_header Content-Length "";
+
+        proxy_set_header Cookie $http_cookie;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Original-URI $request_uri;
+	proxy_set_header Host $host;
+            
+        proxy_intercept_errors on;
+        error_log /var/log/nginx/upstream_errors.log info;
+        access_log /var/log/nginx/subrequest_access.log;
+    }
+
+ location @error401 {
+  set $error "401Error";
+  return 302 https://app.dev.ikarusnest.org/login;
+}
+
+ location @error403 {
+  set $error "403Error";
+  return 302 https://app.dev.ikarusnest.org/why-are-you-here;
+}
+
+}

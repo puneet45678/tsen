@@ -1,0 +1,50 @@
+
+
+app:
+  app_name: Ikarus-Nest
+  EXCLUDED_APIS:
+  - path: /verify-email/{user_id}
+    method: GET
+  - path: /account/{externalDbId}
+    method: DELETE
+
+port:
+  api_port: 8000
+  website_port: 3000
+  user_service_port: 8001
+  supertokens_core_port: 3567
+  camp_service_port: 8002
+  slicer_service_port: 8003
+  api_base_path: /auth
+  website_base_path: /auth
+
+cloud_config:
+
+  s3_bucket: slicer-bucket
+  config_bucket: superslicer-config
+  data_mnt_dir_inside_slicer: /slic3r/data
+  config_mnt_dir_inside_slicer: /config
+  config_sync_dir: /configsync
+
+  time_quantum: 1000
+  idle_time_check: 120000
+  cluster_name: ikarus-nest-dev-slicer-cluster
+  default_slicer_cpu: "512"
+  default_slicer_memory: "450"
+  default_region: ap-south-1
+  file_system_id: fs-091084701ea3953fb
+  efs_instance_id: i-06fb8c70a8c3ec646
+
+  gcp_project_id: ikarus-nest-387110
+  gcp_zone: us-central1
+  gcp_initial_cpu: 1000m
+  gcp_initial_memory: 2048Mi
+  gcp_max_cpu: 2000m
+  gcp_max_memory: 4096Mi
+  gcp_default_concurrency: 80
+  gcp_default_timeout: 600
+  gcp_default_container_port: 80
+
+  
+
+

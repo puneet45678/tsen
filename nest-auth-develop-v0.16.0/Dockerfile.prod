@@ -1,0 +1,67 @@
+# Use a smaller base image
+FROM python:3.9-slim-buster AS base
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Build stage: Here you'd typically compile or prepare your application
+FROM base AS build
+COPY . .
+
+# Final runtime stage
+FROM python:3.9-slim-buster
+WORKDIR /app
+
+# Create a non-root user
+RUN adduser --disabled-password --gecos '' appuser
+
+# Create the logs directory as root
+RUN mkdir -p /app/logs
+
+# Change the ownership of the logs directory to appuser
+RUN chown -R appuser:appuser /app/logs
+
+# Now switch to appuser
+USER appuser
+
+# Copy built app and dependencies from previous stages
+COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=build /app /app
+
+# Set environment variables from build arguments
+ARG mysql_username
+ENV mysql_username=${mysql_username}
+
+ARG mysql_password
+ENV mysql_password=${mysql_password}
+
+ARG mysql_host
+ENV mysql_host=${mysql_host}
+
+ARG supertokens_core_api_key
+ENV supertokens_core_api_key=${supertokens_core_api_key}
+
+ARG user_management_dashboard_api_key
+ENV user_management_dashboard_api_key=${user_management_dashboard_api_key}
+
+ARG google_client_id
+ENV google_client_id=${google_client_id}
+
+ARG google_client_secret_key
+ENV google_client_secret_key=${google_client_secret_key}
+
+ARG facebook_client_id
+ENV facebook_client_id=${facebook_client_id}
+
+ARG facebook_client_secret_key
+ENV facebook_client_secret_key=${facebook_client_secret_key}
+
+ARG change_email_secret_key
+ENV change_email_secret_key=${change_email_secret_key}
+
+# Start the application
+CMD ["python", "run.py", "--env=production"]

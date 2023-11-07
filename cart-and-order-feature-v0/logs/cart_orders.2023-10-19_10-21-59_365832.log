@@ -1,0 +1,68 @@
+[2023-10-19 10:21:59.359] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691119.3598347 with request id ikarus-13503935251192264175
+[2023-10-19 10:21:59.402] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:21:59.473] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:627 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:21:59.476] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691119.4766767, elapsed time: 0.12 seconds with request id ikarus-13503935251192264175
+[2023-10-19 10:21:59.479] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 119.8418140411377 ms
+[2023-10-19 10:24:25.048] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-11654329120135886465
+[2023-10-19 10:24:25.049] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:24:32.016] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-9565360445879006856
+[2023-10-19 10:24:32.017] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:24:32.020] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:24:32.021] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:24:32.023] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691272.0235705 with request id ikarus-9565360445879006856
+[2023-10-19 10:24:32.319] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:24:32.401] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:627 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:24:32.403] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691272.4033017, elapsed time: 0.38 seconds with request id ikarus-9565360445879006856
+[2023-10-19 10:24:32.406] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 382.72833824157715 ms
+[2023-10-19 10:26:46.148] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-12197741662464685838
+[2023-10-19 10:26:46.150] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:26:46.237] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:26:46.258] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:26:46.261] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691406.2619512 with request id ikarus-12197741662464685838
+[2023-10-19 10:26:46.580] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:26:46.705] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:628 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:26:46.711] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691406.7111158, elapsed time: 0.45 seconds with request id ikarus-12197741662464685838
+[2023-10-19 10:26:46.715] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 453.6898136138916 ms
+[2023-10-19 10:27:53.350] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-10711101448066742097
+[2023-10-19 10:27:53.353] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:27:53.477] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:27:53.479] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:27:53.480] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691473.4803398 with request id ikarus-10711101448066742097
+[2023-10-19 10:27:53.767] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:27:53.893] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:629 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:27:53.914] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691473.914614, elapsed time: 0.43 seconds with request id ikarus-10711101448066742097
+[2023-10-19 10:27:53.932] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 453.2904624938965 ms
+[2023-10-19 10:30:11.000] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-11352733067752028123
+[2023-10-19 10:30:11.010] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:30:11.106] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:30:11.110] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:30:11.113] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691611.1137266 with request id ikarus-11352733067752028123
+[2023-10-19 10:30:11.403] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:30:11.484] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:628 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:30:11.486] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691611.4863117, elapsed time: 0.37 seconds with request id ikarus-11352733067752028123
+[2023-10-19 10:30:11.486] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 373.58784675598145 ms
+[2023-10-19 10:31:11.785] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-10312834542367455255
+[2023-10-19 10:31:11.787] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:31:11.888] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:31:11.889] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:31:11.891] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691671.891948 with request id ikarus-10312834542367455255
+[2023-10-19 10:31:12.174] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:31:12.246] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:628 | invalid literal for int() with base 10: 'string'
+[2023-10-19 10:31:12.248] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691672.2485638, elapsed time: 0.36 seconds with request id ikarus-10312834542367455255
+[2023-10-19 10:31:12.250] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 358.5960865020752 ms
+[2023-10-19 10:33:06.421] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-11041334976580728970
+[2023-10-19 10:33:06.426] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:33:06.534] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:33:06.538] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:33:06.539] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691786.5395665 with request id ikarus-11041334976580728970
+[2023-10-19 10:33:06.574] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:33:06.639] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:628 | invalid literal for int() with base 10: '59.99'
+[2023-10-19 10:33:06.642] | DEBUG | main | logging_middleware | main.py:119 | Request POST /api/v1/cart finished at 1697691786.642495, elapsed time: 0.10 seconds with request id ikarus-11041334976580728970
+[2023-10-19 10:33:06.643] | INFO | main | add_process_time_header | main.py:130 | Time to execute the api POST http://localhost:8004/api/v1/cart is 103.91092300415039 ms
+[2023-10-19 10:33:08.631] | INFO | main | set_request_id | main.py:266 | Request ID: ikarus-12039093752463145100
+[2023-10-19 10:33:08.634] | DEBUG | main | session_middleware | main.py:184 | Checking for session Auth
+[2023-10-19 10:33:08.636] | DEBUG | main | session_middleware | main.py:215 | Auth type: User to microservice
+[2023-10-19 10:33:08.638] | DEBUG | main | auth_middleware | main.py:155 | Checking for microservice to microservice auth
+[2023-10-19 10:33:08.640] | DEBUG | main | logging_middleware | main.py:113 | Request POST /api/v1/cart started at 1697691788.6403348 with request id ikarus-12039093752463145100
+[2023-10-19 10:33:08.676] | DEBUG | controllers.cart_controllers | add_to_cart | cart_controllers.py:605 | Given Item is of type Item_type.MODEL 
+[2023-10-19 10:33:08.750] | ERROR | controllers.cart_controllers | add_to_cart | cart_controllers.py:628 | invalid literal for int() with base 10: '59.99'

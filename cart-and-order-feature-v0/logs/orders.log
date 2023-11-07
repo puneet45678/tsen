@@ -1,0 +1,30 @@
+2023-04-24 17:08:29.675 | INFO | __mp_main__ | <module> | run.py:7 | dsfdsgdsgndsjgjdspgjpdsogosjgs[ogiosgjpodsgjisjgpdsjpoj]
+2023-04-26 12:17:24.265 | INFO | routes.auth | index | auth.py:34 | / Api called 
+2023-04-26 12:17:24.268 | ERROR | routes.auth | index | auth.py:39 | User is not an admin
+2023-04-26 12:18:08.304 | INFO | routes.auth | index | auth.py:34 | / Api called 
+2023-04-26 12:18:08.419 | INFO | routes.auth | index | auth.py:45 | / Api Executed for ip:127.0.0.1  with metadata:<supertokens_python.recipe.usermetadata.interfaces.MetadataResult object at 0x0000028263903790>
+2023-04-26 12:20:41.759 | INFO | routes.cart | get_cart | cart.py:14 | /cart Api called for getting cart details for userId:6439312a49db2b0f826357c7
+2023-04-26 12:20:43.549 | ERROR | routes.cart | get_cart | cart.py:17 | No cart Present for userId:6439312a49db2b0f826357c7
+2023-04-26 12:21:57.886 | INFO | routes.cart | move_to_cart | cart.py:183 | /cart/move-to-cart/123 Api called for adding tierof userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:21:57.962 | ERROR | routes.cart | move_to_cart | cart.py:194 | No save for later Present
+2023-04-26 12:22:20.862 | INFO | routes.cart | get_cart | cart.py:49 | /cart/123 Api called for adding tier of userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:22:21.001 | INFO | routes.cart | get_cart | cart.py:68 | /123 Api Executed for userId:6439312a49db2b0f826357c7
+2023-04-26 12:22:34.971 | INFO | routes.cart | get_cart | cart.py:14 | /cart Api called for getting cart details for userId:6439312a49db2b0f826357c7
+2023-04-26 12:22:35.028 | INFO | routes.cart | get_cart | cart.py:27 | /cart Api called Executed for userId:6439312a49db2b0f826357c7
+2023-04-26 12:23:12.737 | INFO | routes.cart | get_cart | cart.py:49 | /cart/dsgkjfgndsf Api called for adding tier of userId:6439312a49db2b0f826357c7 and tierId:dsgkjfgndsf
+2023-04-26 12:23:12.785 | ERROR | routes.cart | get_cart | cart.py:54 | Invalid Tier Id
+2023-04-26 12:23:25.267 | INFO | routes.cart | get_cart | cart.py:49 | /cart/790 Api called for adding tier of userId:6439312a49db2b0f826357c7 and tierId:790
+2023-04-26 12:23:25.312 | ERROR | routes.cart | get_cart | cart.py:54 | Invalid Tier Id
+2023-04-26 12:23:33.027 | INFO | routes.cart | get_cart | cart.py:14 | /cart Api called for getting cart details for userId:6439312a49db2b0f826357c7
+2023-04-26 12:23:33.076 | INFO | routes.cart | get_cart | cart.py:27 | /cart Api called Executed for userId:6439312a49db2b0f826357c7
+2023-04-26 12:23:51.704 | INFO | routes.cart | get_cart | cart.py:14 | /cart Api called for getting cart details for userId:6439312a49db2b0f826357c7
+2023-04-26 12:23:51.749 | INFO | routes.cart | get_cart | cart.py:27 | /cart Api called Executed for userId:6439312a49db2b0f826357c7
+2023-04-26 12:24:18.488 | INFO | routes.cart | get_save_for_later | cart.py:34 | /cart/save-for-later Api called  for userId:6439312a49db2b0f826357c7
+2023-04-26 12:24:18.524 | ERROR | routes.cart | get_save_for_later | cart.py:38 | No save for later Present for userId:6439312a49db2b0f826357c7
+2023-04-26 12:24:33.675 | INFO | routes.cart | save_for_later | cart.py:154 | /cart/save-for-later/123 Api called for updating tierof  userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:24:34.247 | INFO | routes.cart | save_for_later | cart.py:176 | /cart/save-for-later/123 Api Executed for userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:24:38.115 | INFO | routes.cart | get_save_for_later | cart.py:34 | /cart/save-for-later Api called  for userId:6439312a49db2b0f826357c7
+2023-04-26 12:24:38.151 | INFO | routes.cart | get_save_for_later | cart.py:43 | /cart/save-for-later Api Executed for userId:6439312a49db2b0f826357c7
+2023-04-26 12:24:55.977 | INFO | routes.cart | move_to_cart | cart.py:183 | /cart/move-to-cart/123 Api called for adding tierof userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:24:56.315 | INFO | routes.cart | move_to_cart | cart.py:211 | /cart/move-to-cart/123 Api Executed for userId:6439312a49db2b0f826357c7 and tierId:123
+2023-04-26 12:28:03.649 | INFO | routes.cart | my_orders | cart.py:246 | /my-orders Api called to get the order details for userId:6439312a49db2b0f826357c7

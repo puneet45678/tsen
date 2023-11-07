@@ -1,0 +1,75 @@
+2023-08-22 16:11:24.133 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:11:24.135 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:11:24.139 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:11:24.142 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:11:24.175 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:11:24.224 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:394 | Order details recieved succesfully
+2023-08-22 16:11:24.226 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:395 | /api/v1/my-orders Api Executed to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:11:59.846 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:12.605 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:18.821 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:23.286 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:35.681 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:36.929 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:39.411 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.325 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.327 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.328 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.330 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.339 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.342 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.343 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.346 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.388 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.392 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.394 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.395 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.397 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.432 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.436 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.438 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.439 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.440 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:394 | Order details recieved succesfully
+2023-08-22 16:12:54.442 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.442 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:395 | /api/v1/my-orders Api Executed to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.449 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.451 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.452 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.454 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.490 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.496 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.499 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.500 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.502 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.527 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:394 | Order details recieved succesfully
+2023-08-22 16:12:54.528 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:395 | /api/v1/my-orders Api Executed to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.532 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.536 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.537 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.541 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.545 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.552 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.557 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.559 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.562 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.606 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.609 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.612 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.613 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.614 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:394 | Order details recieved succesfully
+2023-08-22 16:12:54.615 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.615 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:395 | /api/v1/my-orders Api Executed to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.637 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.640 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.643 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.645 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.655 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.660 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.663 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice
+2023-08-22 16:12:54.665 | DEBUG | main | auth_middleware | main.py:112 | Checking for microservice to microservice auth
+2023-08-22 16:12:54.667 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:369 | /api/v1/my-orders Api called to get the order details for userId:64e44425fd18219d567ee7d1
+2023-08-22 16:12:54.702 | ERROR | controllers.cart_controllers | my_orders | cart_controllers.py:374 | No orders present
+2023-08-22 16:12:54.735 | DEBUG | controllers.cart_controllers | my_orders | cart_controllers.py:394 | Order details recieved succesfully
+2023-08-22 16:12:54.736 | INFO | controllers.cart_controllers | my_orders | cart_controllers.py:395 | /api/v1/my-orders Api Executed to get the order details for userId:64d4b086468a8d6d8a5df95c
+2023-08-22 16:12:54.740 | DEBUG | main | session_middleware | main.py:136 | Checking for session Auth
+2023-08-22 16:12:54.742 | DEBUG | main | session_middleware | main.py:187 | Auth type: User to microservice

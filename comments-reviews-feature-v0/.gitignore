@@ -1,0 +1,15 @@
+.env
+.idea
+**__pycache__**
+temp
+.yaml
+venv/
+test.ipynb
+.vscode
+(enc)temp.stl
+user.log
+githubactions.txt
+**logs/**
+**secrets.yaml**
+ikarus-nest-387110-835417d86500.json
+dockerfile

@@ -1,0 +1,70 @@
+app:
+  app_name: Ikarus-Nest
+  EXCLUDED_APIS:
+  - path: /device_registration/api/v1/register_device
+    method: POST
+  - path: /admin_panel/api/v1/recieve_and_send_in-app_notification
+    method: POST
+
+logging:
+  log_format: '[%(asctime)s] %(levelname)s:%(name)s %(message)s'
+  log_file: "notifications.log"
+  
+
+aws:
+  s3:
+    bucket: "test-blog-nest"
+    region: "ap-south-1"
+    path-region: "s3.ap-south-1"
+
+auth:
+  app_name: "Ikarus-Nest"
+  api_domain: "http://localhost:8000"
+  website_domain: "http://localhost:3000"
+  api_base_path: "/auth"
+  website_base_path: "/auth"
+  supertokens_core_uri: "http://15.207.107.101:3567"
+  auth-framework: 'fastapi'
+  auth-mode: "asgi"
+
+ports:
+  campaign_port: "8002"
+  user_port: "8001"
+  auth_port: "8000"
+  supertokens_core_port: "3567"
+  website_port: "3000"
+
+cors: 
+  allowed_origins:
+    - http://localhost:3000
+    - http://localhost:3001
+    - http://localhost:5000
+    - http://localhost:8000
+    - http://localhost:5173
+    - https://app.dev.ikarusnest.org
+  allowed_methods:
+    - GET 
+    - POST 
+    - PUT 
+    - HEAD
+    - OPTIONS
+    - DELETE
+  allowed_headers:
+    - Content-Type
+    - Access-Control-Allow-Headers
+    - Authorization
+    - Access-Control-Allow-Origin
+
+getstream_config:
+  connection_timeout: 10000000
+
+uploadcare_config:
+  uploadcare_url: https://ucarecdn.com
+
+brevo_contact_lists_config:
+  promotional_list_id: 7
+  offers_list_id: 8
+  new_features_list_id: 9
+
+brevo_email_config:
+  sender_name: Ikarus Nest

@@ -1,0 +1,7 @@
+host: localhost
+host_core: 15.207.107.101
+cookie_domain: localhost
+mysql_db:
+  mysql_supertokens_db: supertokens
+  mysql_auth_custom_db: auth
+  mysql_port: 3306

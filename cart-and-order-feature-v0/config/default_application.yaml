@@ -1,0 +1,23 @@
+app:
+  app_name: Ikarus-Nest
+  EXCLUDED_APIS:
+  - path: /user
+    method: POST
+  - path: /username
+    method: POST
+  - path: /is-username-taken/{username}
+    method: GET
+  - path: /user/{user_id}
+    method: DELETE
+  - path: /user/userid/{userid}
+    method: GET
+
+port:
+  api_port: 8000
+  website_port: 3000
+  user_service_port: 8001
+  campaign_service_port: 8002
+  supertokens_core_port: 3567
+  api_base_path: /auth
+  website_base_path: /auth
+

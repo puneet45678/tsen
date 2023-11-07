@@ -1,0 +1,70 @@
+app:
+  app_name: Ikarus-Nest
+  EXCLUDED_APIS:
+  - path: /verify-email/{user_id}
+    method: GET
+  - path: /forget-password
+    method: PUT
+  - path: /reset-password/{token}
+    method: GET
+  - path: /add-to-known-device-list/{user_id}
+    method: GET
+  - path: /reset-password-confirm
+    method: POST
+  - path: /verify-signup-email/{user_id}
+    method: GET
+  - path: /account/{userDbId}
+    method: DELETE
+  - path: /test_claims
+    method: GET
+  - path: /test
+    method: GET
+  - path: /user-role-2
+    method: PUT
+  
+  EMAIL_VERIFICATION_EXCLUDED_APIS:
+    - path: /test
+      method: GET
+    - path: /signout
+      method: POST
+
+port:
+  api_port: 8000
+  website_port: 3000
+  admin_website_port: 3001
+  user_service_port: 8001
+  slicer_service_port: 8003
+  campaign_service_port: 8002
+  notification_service_port: 8006
+  supertokens_core_port: 3567
+  api_base_path: /auth
+  website_base_path: /auth
+
+google:
+  email_scope: https://www.googleapis.com/auth/userinfo.email
+  profile_scope: https://www.googleapis.com/auth/userinfo.profile
+  google_api: https://www.googleapis.com/oauth2/v1/userinfo?alt=json&accessToken=
+  
+facebook:
+  facebook_api: https://graph.facebook.com/me?accessToken=
+
+email:
+  email_verification_mode : REQUIRED
+  verification_email_subject : Please verify your email for Ikarus Nest
+  reset_password_subject : Reset Password
+  verification_email_content : Hello from Ikarus Nest! Please use this button below to verify your email.
+  reset_password_email_content: Forgot your password? No worries!! Click on the button below to reset your password.
+
+
+sumologic:
+  url: "https://collectors.in.sumologic.com/receiver/v1/http/ZaVnC4dhaV2QA7-8rVYzlA3nF1ZcC8BMk8agDxi0TbkjQkfDC012fA_F0uZHd0j_pmRCHTam6vtx5qEK2KQseLAQmxTpkW_-_oarsREOKt5EEiAWqQR_DQ=="
+
+super_admin_email: himanshu.kukreja@ikarus3d.com
+
+fingerprint_cookie: gadget-echo-nibbles
+
+token_expiry_in_hours: 1
+
+
+cache:
+  jwks_cached_key: jwks_response

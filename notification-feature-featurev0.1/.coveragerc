@@ -1,0 +1,22 @@
+[run]
+branch = True
+source = .
+omit = */config/*
+       */constants/*
+       */images/*
+       */logger/*
+       */logs/*
+       */models/*
+       */templates/*
+       */utils/*
+       */db_actions.py
+       */run.py
+       */index.py
+
+[report]
+skip_empty = True
+
+[html]
+directory = build/coverage_html_report
+title = Notification Service Unit Testing Coverage Report
+skip_empty = True

@@ -1,0 +1,377 @@
+name: Push to ECR, Register Task definition and Run task on ECS
+
+on:
+  push:
+    branches: [ "develop-v0.16.0"]
+
+# Environment Variables and Secrets
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION_DEV }}
+  ECR_REPOSITORY:  ${{ secrets.ECR_REPOSITORY_DEV}}
+  ECS_TASK_DEFINITION: taskdefinition.json
+  ECS_CLUSTER: ${{ secrets.ECS_CLUSTER_DEV }}
+
+
+permissions:
+  contents: read
+
+jobs:
+
+  setup-infrastructure:
+      name: Setup AWS Infrastructure using Ansible
+      runs-on: ubuntu-latest
+      environment: production
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        # Setting up Ansible
+        - name: Setup Ansible
+          run: |
+            sudo apt update
+            sudo apt install -y ansible
+
+        - name: Install ansible collections
+          run: |
+            
+            ansible-galaxy collection install amazon.aws:==3.3.1 --force
+            ansible-galaxy collection install community.aws
+            
+
+        - name: Execute Ansible Playbook
+          run: | 
+            ansible-playbook -vvv ansible_playbook.yaml > ansible_output.log 2>&1 
+          
+          env:
+            AWS_REGION: ${{ secrets.AWS_REGION_DEV }}
+            ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_DEV }}
+            ECS_CLUSTER: ${{ secrets.ECS_CLUSTER_DEV }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+
+
+        - name: Display Ansible Output
+          run: cat ansible_output.log
+
+
+        - name: Notify Slack on Failure
+          if: failure()
+          run: |
+            ERROR_MESSAGE=$(grep -E 'FAILED|ERROR' ansible_output.log)  # Extract error messages from the log
+            curl -X POST -H 'Content-type: application/json' --data '{
+              "text": "🚨 Workflow Failure Alert!",
+              "attachments": [
+                {
+                  "color": "danger",
+                  "fields": [
+                    {
+                      "title": "Repository",
+                      "value": "${{ github.repository }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Workflow",
+                      "value": "${{ github.workflow }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Action",
+                      "value": "${{ github.action }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Triggered By",
+                      "value": "${{ github.actor }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Commit",
+                      "value": "${{ github.sha }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Error Message",
+                      "value": "$ERROR_MESSAGE",
+                      "short": false
+                    }
+                  ]
+                }
+              ]
+            }' ${{ secrets.SLACK_WEBHOOK_URL }}
+
+
+
+  deploy:
+    needs: setup-infrastructure
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    # Checking out the latest code from the development branch
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Configuring AWS credentials for the subsequent steps
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    # Logging in to Amazon ECR
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+
+    # Checking if there are any images in the ECR repository
+    - name: Check if ECR repository is empty
+      id: check-ecr-empty
+      run: |
+
+        # Fetching the list of images from the ECR repository
+        IMAGES=$(aws ecr list-images --repository-name ${{ env.ECR_REPOSITORY }} --output json)
+
+        # Check if the IMAGES variable is empty or not
+        if [ "$(echo $IMAGES | jq '.imageIds | length')" -eq 0 ]; then
+          echo "ECR_REPO_EMPTY=1" >> $GITHUB_ENV
+        else
+          echo "ECR_REPO_EMPTY=0" >> $GITHUB_ENV
+        fi
+        
+
+    # Setting the semantic version tag for the Docker image
+    - name: Set semantic version tag
+      id: set-semantic-version-tag
+      run: |
+
+        # Handling the versioning based on the repository state
+        # Logic for setting or incrementing the image tag
+
+        if [ "${{ env.ECR_REPO_EMPTY }}" -eq 1 ]; then
+          # Set the default semantic version tag if the ECR repository is empty
+          SEMANTIC_TAG="v1.0.0"
+        else
+          # Get the latest semantic version tag from the ECR repository
+          LATEST_TAG=$(aws ecr list-images --repository-name ${{ env.ECR_REPOSITORY }} --query 'imageIds[].imageTag' --output json | jq -r 'map(select(test("^v[0-9]+\\.[0-9]+\\.[0-9]+$"))) | sort_by((.[1:] | split(".") | map(tonumber))) | reverse | .[0]')
+          if [ "$LATEST_TAG" == "null" ]; then
+            # Set the default semantic version tag if there are no valid semantic tags in the ECR repository
+            SEMANTIC_TAG="v1.0.0"
+          else
+            # Increment the major version of the latest semantic version tag
+            MAJOR=$(echo $LATEST_TAG | cut -d'.' -f1 | tr -d 'v')
+            MINOR=$(echo $LATEST_TAG | cut -d'.' -f2)
+            PATCH=$(echo $LATEST_TAG | cut -d'.' -f3)
+            NEW_MINOR=$((MINOR + 1))
+            NEW_MAJOR=$((MAJOR + 1))
+            NEW_PATCH=$((PATCH + 1))
+            SEMANTIC_TAG="v${MAJOR}.${MINOR}.${NEW_PATCH}"
+          fi
+        fi
+        
+        # Set the semantic version tag as an environment variable
+        echo "SEMANTIC_TAG=$SEMANTIC_TAG" >> $GITHUB_ENV
+        echo "Set SEMANTIC_TAG: $SEMANTIC_TAG"
+    
+
+    - name: Setup Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Create and use docker-container driver builder
+      run: |
+        docker buildx create --name mybuilder --use
+
+    - name: Cache Docker layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-
+
+
+    # Building, tagging, and pushing the Docker image to Amazon ECR
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: Dockerfile.prod
+        push: true
+        tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.SEMANTIC_TAG }}
+        build-args: |
+          mysql_username=${{ secrets.MYSQL_USERNAME_DEV}}
+          mysql_password=${{ secrets.MYSQL_PASSWORD_DEV}}
+          mysql_host=${{ secrets.MYSQL_HOST_DEV}}
+          supertokens_core_api_key=${{ secrets.SUPERTOKENS_CORE_API_KEY_DEV}}
+          user_management_dashboard_api_key=${{ secrets.USER_MANAGEMENT_DASHBOARD_API_KEY_DEV}}
+          google_client_id=${{ secrets.GOOGLE_CLIENT_ID_DEV}}
+          google_client_secret_key=${{ secrets.GOOGLE_CLIENT_SECRET_KEY_DEV}}
+          facebook_client_id=${{ secrets.FACEBOOK_CLIENT_ID_DEV}}
+          facebook_client_secret_key=${{ secrets.FACEBOOK_CLIENT_SECRET_KEY_DEV}}
+          change_email_secret_key=${{ secrets.CHANGE_EMAIL_SECRET_KEY_DEV}}
+
+
+    # Installing the envsubst tool to replace environment variables in 
+    # the ECS task definition
+
+    - name: Install envsubst
+      run: sudo apt-get install -y gettext-base
+
+    # Replacing environment variables in the ECS task definition
+    - name: Replace environment variables in task definition
+      run: |
+        envsubst < ${{ env.ECS_TASK_DEFINITION }} > taskdefinition_substituted.json
+      env:
+        MYSQL_CONNECTION_URI: ${{ secrets.MYSQL_CONNECTION_URI_DEV}}
+        MYSQL_TABLE_NAMES_PREFIX: ${{ secrets.MYSQL_TABLE_NAMES_PREFIX_DEV}}
+        AUTH_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.SEMANTIC_TAG  }}
+
+
+    # Installing the jq tool for handling JSON
+    - name: Install jq
+      run: sudo apt-get install -y jq
+
+
+    # Stopping the tasks from the previous deployment
+    - name: Stop previous tasks
+      run: |
+          FAMILY=$(jq -r '.family' ${{ env.ECS_TASK_DEFINITION }})
+          echo $FAMILY
+          aws ecs list-tasks --cluster ${{ env.ECS_CLUSTER }} --family $FAMILY --desired-status RUNNING --query 'taskArns[]' --output text | while read -r taskArn; do
+            aws ecs stop-task --cluster ${{ env.ECS_CLUSTER }} --task $taskArn
+          done
+
+
+    # Starting the new tasks with the latest Docker image
+    - name: Run Task on Amazon ECS
+      id: run-task
+      run: |
+
+        # Registering the task definition and starting a new task
+
+        TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://taskdefinition_substituted.json --query 'taskDefinition.taskDefinitionArn' --output text)
+        TASK_ARN=$(aws ecs run-task --cluster ${{ env.ECS_CLUSTER }} --task-definition $TASK_DEF_ARN --count 1 --started-by github-actions-${{ github.actor }} --query 'tasks[0].taskArn' --output text)
+        echo "TASK_ARN=$TASK_ARN" >> $GITHUB_ENV
+
+
+  # Waiting for the task to start running before exiting the workflow successfully or failing it after max retries are reached 
+
+    - name: Wait and check for task to start
+      run: |
+        max_retries=10
+        retry_interval=10  # in seconds
+        retry_count=0
+
+        while [ $retry_count -lt $max_retries ]; do
+          TASK_STATUS=$(aws ecs describe-tasks --cluster ${{ env.ECS_CLUSTER }} --tasks $TASK_ARN --query 'tasks[0].lastStatus' --output text)
+          echo "Current task status: $TASK_STATUS"
+          
+          # Break the loop if the task has started
+          if [ "$TASK_STATUS" == "RUNNING" ]; then
+            echo "Task started successfully"
+            echo "Exit the workflow successfully"
+            echo "done=1" >> $GITHUB_ENV
+            break
+          fi
+
+          # Increment the retry count and wait for the next interval
+          retry_count=$((retry_count + 1))
+          echo "Waiting for $retry_interval seconds before retrying..."
+          sleep $retry_interval
+        done
+
+        # Check if it reached max retries without successfully starting
+        if [ $retry_count -eq $max_retries ]; then
+          echo "Task failed to start after $max_retries attempts"
+          exit 1
+        fi
+
+    # Exiting the workflow if tasks are running successfully
+    - name: Exit workflow if tasks are running
+      if: env.done == '1'
+      run: exit 0
+
+
+
+    - name: Notify Slack on Failure
+      if: failure()
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "🚨 Workflow Failure Alert!",
+          "attachments": [
+            {
+              "color": "danger",
+              "fields": [
+                {
+                  "title": "Repository",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "Workflow",
+                  "value": "${{ github.workflow }}",
+                  "short": true
+                },
+                {
+                  "title": "Action",
+                  "value": "${{ github.action }}",
+                  "short": true
+                },
+                {
+                  "title": "Triggered By",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "Commit",
+                  "value": "${{ github.sha }}",
+                  "short": false
+                }
+              ]
+            }
+          ]
+        }' ${{ secrets.SLACK_WEBHOOK_URL_DEV}}
+
+    
+    - name: Notify Slack on Success
+      if: success()
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "🎉 Workflow Completed Successfully!",
+          "attachments": [
+            {
+              "color": "good",
+              "fields": [
+                {
+                  "title": "Repository",
+                  "value": "${{ github.repository }}",
+                  "short": true
+                },
+                {
+                  "title": "Workflow",
+                  "value": "${{ github.workflow }}",
+                  "short": true
+                },
+                {
+                  "title": "Action",
+                  "value": "${{ github.action }}",
+                  "short": true
+                },
+                {
+                  "title": "Triggered By",
+                  "value": "${{ github.actor }}",
+                  "short": true
+                },
+                {
+                  "title": "Commit",
+                  "value": "${{ github.sha }}",
+                  "short": false
+                }
+              ]
+            }
+          ]
+        }' ${{ secrets.SLACK_WEBHOOK_URL_DEV}}
+

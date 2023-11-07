@@ -1,0 +1,149 @@
+responses:
+  UNAUTHORIZED:
+    MESSAGE: "Unauthorized"
+    CODE: 401
+  
+  TOKEN_THEFT_DETECTED:
+    MESSAGE: "Token theft detected"
+    CODE: 401
+
+  REFRESH_TOKEN_EXPIRED:
+    MESSAGE: "Refresh token expired"
+    CODE: 401 
+
+  HEADERS_NOT_FOUND_FROM_TOKEN:
+    MESSAGE: "Unable to get headers from token"
+    CODE: 401
+
+  INVALID_TOKEN:
+    MESSAGE: "Invalid token"
+    CODE: 401
+
+  EMAIL_ALREADY_EXISTS:
+    MESSAGE: "Email already exists"
+    CODE: 409
+
+  EMAIL_ALREADY_EXISTS_USING_SOCIAL:
+    MESSAGE: "Email already exists using social login provider"
+    CODE: 409
+
+  FAILED_TO_ADD_USER_TO_USER_DB:
+    MESSAGE: "Failed to add user to user db"
+    CODE: 500
+
+  FAILED_TO_CREATE_USER_MAPPING:
+    MESSAGE: "Failed to create user mapping"
+    CODE: 500
+
+# TODO: Update the MESSAGE
+  FAILED_TO_GET_THIRDPARTY_RESPONSE:
+    MESSAGE: "Failed to get response from OAuth provider"
+    CODE: 500
+
+  FAILED_TO_ADD_INITIAL_ROLES:
+    MESSAGE: "Failed to add initial roles"
+    CODE: 500
+
+  SUSPENDED_USER:
+    MESSAGE: "User is suspended"
+    CODE: 403
+
+  INTERNAL_SERVER_ERROR:
+    MESSAGE: "Internal server error"
+    CODE: 500
+
+  WRONG_CREDENTIALS:
+    MESSAGE: "Wrong credentials"
+    CODE: 401
+  
+  DEVICE_FINGERPRINT_ALREADY_EXISTS:
+    MESSAGE: "Fingerprint already exists"
+    CODE: 200
+
+  USENAME_ALREADY_EXISTS:
+    MESSAGE: "Username already exists"
+    CODE: 200
+
+  SESSION_NOT_FOUND:
+    MESSAGE: "Session not found"
+    CODE: 404
+
+  OLD_AND_NEW_PASSWORDS_ARE_SAME:
+    MESSAGE: "Old and new passwords are same"
+    CODE: 400
+
+# TODO: Don't tell that the password is wrong. indicate to the user that try with correct credentials
+  WRONG_PASSWORD_ENTERED:
+    MESSAGE: "Wrong password entered"
+    CODE: 400
+
+  PASSWORD_POLICY_NOT_MATCHED:
+    MESSAGE: "Password policy not matched"
+    CODE: 400
+
+  INVALID_EMAIL:
+    MESSAGE: "Invalid email"
+    CODE: 400
+
+  USER_NOT_FOUND:
+    MESSAGE: "User not found"
+    CODE: 404
+  
+  # UPDATE
+  NOT_CUSTOM_EMAIL_USER:
+    MESSAGE: "Chainging the login provider is not allowed"
+    CODE: 400
+
+  EMAIL_ALREADY_TAKEN:
+    MESSAGE: "Email is already taken"
+    CODE: 200
+
+  UNEXPIRED_TOKEN_EXISTS:
+    MESSAGE: "Unexpired token already exists"
+    CODE: 200
+
+  TOKEN_NOT_FOUND:
+    MESSAGE: "Token not found or has already been used"
+    CODE: 404
+
+  CHANGE_EMAIL_REQUEST_NOT_INITIATED:
+    MESSAGE: "Change email request not initiated"
+    CODE: 404
+
+  VERIFICATION_TOKEN_NOT_FOUND:
+    MESSAGE: "Token not found or has already been used"
+    CODE: 404
+
+  VERIFICATION_TOKEN_EXPIRED:
+    MESSAGE: "Token expired"
+    CODE: 401
+
+  EMAIL_ALREADY_VERIFIED:
+    MESSAGE: "Email already verified"
+    CODE: 200
+
+  EMAIL_NOT_VERIFIED:
+    MESSAGE: "Email not verified"
+    CODE: 403
+
+  INVALID_DATA:
+    MESSAGE: "Invalid data"
+    CODE: 400
+
+  ROLE_NOT_FOUND:
+    MESSAGE: "Role not found"
+    CODE: 404
+
+  PERMISSION_NOT_FOUND:
+    MESSAGE: "Permission not found"
+    CODE: 404
+
+  ROLE_ALREADY_ASSIGNED:
+    MESSAGE: "Role already assigned to user"
+    CODE: 409
+
+  ROLE_NOT_ASSIGNED:
+    MESSAGE: "Role not assigned to user"
+    CODE: 403
+
+

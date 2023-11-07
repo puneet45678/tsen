@@ -1,0 +1,195 @@
+permissions:
+  3DA:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUsers
+  - AddReview
+  - UpdateReview
+  - DeleteReview
+  - ReadReview
+  - AddComment
+  - UpdateComment
+  - DeleteComment
+  - ReadComment
+  - AddPortfolioObject
+  - DeletePortfolioObject
+  - UpdatePortfolioObject
+  - ReadPortfolioObject
+  - PurchaseModels
+  - PurchaseCampaigns
+  - ReportModel
+  - ReportCampaign
+  - ReportUserPortfolioObjects
+  - ReportComment
+  - ReportReview
+  - ViewPurchases
+  - UseSlicer
+  - ReadUserProfile
+  - UpdateUserProfile
+  - DeleteAccount
+  - ViewCampaignUpdates
+  - AddCampaignUpdateCommentsAndReplies
+  - DeleteCampaignUpdateCommentsAndReplies
+  - UpdateCampaignUpdateCommentsAndReplies
+  - CreateModal
+  - UpdateModel
+  - DeleteModel
+  - CreateCampaign
+  - UpdateCampaign
+  - DeleteCampaign
+  - ViewNotifications
+  - DownloadModels
+  - DeleteCampaignUpdates
+  - CreateCampaignUpdates
+  - EditCampaignUpdates
+  - ViewModelAndCampaignStatistics
+  3DP:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUsers
+  - AddReview
+  - UpdateReview
+  - DeleteReview
+  - ReadReview
+  - AddComment
+  - UpdateComment
+  - DeleteComment
+  - ReadComment
+  - AddPortfolioObject
+  - DeletePortfolioObject
+  - UpdatePortfolioObject
+  - ReadPortfolioObject
+  - PurchaseModels
+  - PurchaseCampaigns
+  - ReportModel
+  - ReportCampaign
+  - ReportUserPortfolioObjects
+  - ReportComment
+  - ReportReview
+  - ViewPurchases
+  - UseSlicer
+  - ReadUserProfile
+  - UpdateUserProfile
+  - DeleteAccount
+  - ViewCampaignUpdates
+  - AddCampaignUpdateCommentsAndReplies
+  - DeleteCampaignUpdateCommentsAndReplies
+  - UpdateCampaignUpdateCommentsAndReplies
+  - ViewNotifications
+  - DownloadModels
+  CampaignsAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_EndReportedCampaign
+  - Admin_DeleteCampaignUpdates
+  - Admin_ApproveOrRejectCampaign
+  - Admin_ViewCampaign
+  ContentsAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_DeleteUserComments
+  - Admin_DeleteUserReviews
+  - Admin_ViewUserComments
+  - Admin_ViewUserReviews
+  Guest:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  MarketingAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_CreateNotifications
+  ModelsAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_DeleteReportedModel
+  - Admin_ApproveOrRejectSubmittedModel
+  - Admin_ViewModel
+  - Admin_ChangeModelVisibility
+  - Admin_DownloadModels
+  SuperAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - CreateRoles
+  - CreatePermissions
+  - AssignRoles
+  - AssignPermissions
+  - ViewRoles
+  - ViewPermissions
+  - DeleteRoles
+  - DeletePermissions
+  TechAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_DeleteUserSession
+  - Admin_ViewUserSession
+  UserAdmin:
+  - ReadCampaigns
+  - ReadModels
+  - PerformSearch
+  - ReadUserProfile
+  - ReadComments
+  - ReadReviews
+  - ReadPortfolioObject
+  - ReadCampaignUpdates
+  - Admin_ReadUsers
+  - Admin_DeleteUserAccount
+  - Admin_SuspendUserAccount
+  - Admin_ChangeUserRoles
+  xyzpermission3_role:
+  - xyzpermission3
+roles:
+- SuperAdmin
+- ModelsAdmin
+- CampaignsAdmin
+- UserAdmin
+- ContentsAdmin
+- TechAdmin
+- Guest
+- 3DP
+- 3DA
+- xyzpermission3_role
+

@@ -1,0 +1,392 @@
+[2023-10-03 11:02:24.032] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-9431706050083137384
+[2023-10-03 11:02:24.036] | DEBUG | main | logging_middleware | main.py:150 | Request OPTIONS /auth/authorisationurl started at 1696311144.0366318 with request id ikarus-9431706050083137384
+url http://localhost:8000/auth/authorisationurl
+[2023-10-03 11:02:24.042] | DEBUG | main | logging_middleware | main.py:156 | Request OPTIONS /auth/authorisationurl finished at 1696311144.0421927, elapsed time: 0.01 seconds with request id ikarus-9431706050083137384
+
+INFO:     127.0.0.1:51441 - "OPTIONS /auth/authorisationurl?thirdPartyId=google&redirectURIOnProviderDashboard=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback%2Fgoogle HTTP/1.1" 200 OK
+[2023-10-03 11:02:24.048] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-10443345374287210344
+[2023-10-03 11:02:24.052] | DEBUG | main | logging_middleware | main.py:150 | Request GET /auth/authorisationurl started at 1696311144.0528727 with request id ikarus-10443345374287210344
+url http://localhost:8000/auth/authorisationurl
+com.supertokens {"t": "2023-10-03T05:32:24.055Z", "sdkVer": "0.16.0", "message": "middleware: Started", "file": "supertokens.py:486"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.055Z", "sdkVer": "0.16.0", "message": "middleware: requestRID is: thirdpartyemailpassword", "file": "supertokens.py:499"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.055Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: emailverification", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.056Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: session", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.056Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: jwt", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.056Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: thirdpartyemailpassword", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.056Z", "sdkVer": "0.16.0", "message": "middleware: Matched with recipe ID: thirdpartyemailpassword", "file": "supertokens.py:536"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.056Z", "sdkVer": "0.16.0", "message": "middleware: Request being handled by recipe. ID is: /authorisationurl", "file": "supertokens.py:549"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.325Z", "sdkVer": "0.16.0", "message": "Received response with status 200 and body {
+ "issuer": "https://accounts.google.com",
+ "authorization_endpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+ "device_authorization_endpoint": "https://oauth2.googleapis.com/device/code",
+ "token_endpoint": "https://oauth2.googleapis.com/token",
+ "userinfo_endpoint": "https://openidconnect.googleapis.com/v1/userinfo",
+ "revocation_endpoint": "https://oauth2.googleapis.com/revoke",
+ "jwks_uri": "https://www.googleapis.com/oauth2/v3/certs",
+ "response_types_supported": [
+  "code",
+  "token",
+  "id_token",
+  "code token",
+  "code id_token",
+  "token id_token",
+  "code token id_token",
+  "none"
+ ],
+ "subject_types_supported": [
+  "public"
+ ],
+ "id_token_signing_alg_values_supported": [
+  "RS256"
+ ],
+ "scopes_supported": [
+  "openid",
+  "email",
+  "profile"
+ ],
+ "token_endpoint_auth_methods_supported": [
+  "client_secret_post",
+  "client_secret_basic"
+ ],
+ "claims_supported": [
+  "aud",
+  "email",
+  "email_verified",
+  "exp",
+  "family_name",
+  "given_name",
+  "iat",
+  "iss",
+  "locale",
+  "name",
+  "picture",
+  "sub"
+ ],
+ "code_challenge_methods_supported": [
+  "plain",
+  "S256"
+ ],
+ "grant_types_supported": [
+  "authorization_code",
+  "refresh_token",
+  "urn:ietf:params:oauth:grant-type:device_code",
+  "urn:ietf:params:oauth:grant-type:jwt-bearer"
+ ]
+}
+", "file": "recipe\\thirdparty\\providers\\utils.py:40"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.326Z", "sdkVer": "0.16.0", "message": "Sending response to client with status code: 200", "file": "utils.py:158"}
+
+com.supertokens {"t": "2023-10-03T05:32:24.326Z", "sdkVer": "0.16.0", "message": "middleware: Ended", "file": "supertokens.py:565"}
+
+[2023-10-03 11:02:24.327] | DEBUG | main | logging_middleware | main.py:156 | Request GET /auth/authorisationurl finished at 1696311144.3271375, elapsed time: 0.27 seconds with request id ikarus-10443345374287210344
+[2023-10-03 11:02:24.328] | INFO | main | add_process_time_header | main.py:169 | Time to execute the api GET http://localhost:8000/auth/authorisationurl?thirdPartyId=google&redirectURIOnProviderDashboard=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback%2Fgoogle is 276.36122703552246 ms
+
+INFO:     127.0.0.1:51390 - "GET /auth/authorisationurl?thirdPartyId=google&redirectURIOnProviderDashboard=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback%2Fgoogle HTTP/1.1" 200 OK
+200
+[2023-10-03 11:02:30.788] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-13672970196000417646
+[2023-10-03 11:02:30.789] | DEBUG | main | logging_middleware | main.py:150 | Request OPTIONS /auth/signinup started at 1696311150.7892494 with request id ikarus-13672970196000417646
+url http://localhost:8000/auth/signinup
+[2023-10-03 11:02:30.791] | DEBUG | main | logging_middleware | main.py:156 | Request OPTIONS /auth/signinup finished at 1696311150.7912712, elapsed time: 0.00 seconds with request id ikarus-13672970196000417646
+
+INFO:     127.0.0.1:51443 - "OPTIONS /auth/signinup HTTP/1.1" 200 OK
+[2023-10-03 11:02:31.100] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-11483431138771052399
+[2023-10-03 11:02:31.101] | DEBUG | main | logging_middleware | main.py:150 | Request POST /auth/signinup started at 1696311151.1015007 with request id ikarus-11483431138771052399
+url http://localhost:8000/auth/signinup
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Started", "file": "supertokens.py:486"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: requestRID is: thirdpartyemailpassword", "file": "supertokens.py:499"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: emailverification", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: session", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: jwt", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: thirdpartyemailpassword", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Matched with recipe ID: thirdpartyemailpassword", "file": "supertokens.py:536"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.102Z", "sdkVer": "0.16.0", "message": "middleware: Request being handled by recipe. ID is: /signinup", "file": "supertokens.py:549"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.578Z", "sdkVer": "0.16.0", "message": "Received response with status 200 and body {
+  "access_token": "ya29.a0AfB_byAGCkkGMw2UMHOT8VpsFvuyWq1k9nKEH5FzAoyFLtxLs_Z6XtZRLy7skCgstzQZi0Y3kT1tFkLGXfo2AeSbvSVJVfG4tkUQoSWmIaGHRtI4K4CtUt3MRwR_emy56C_pqk3Npi4hYE6QmYM4slQosZNXv1_ec0aHaCgYKAeQSARISFQGOcNnCbnuwChjIQy6DhCXGbLo-nw0171",
+  "expires_in": 3599,
+  "refresh_token": "1//0gaxhPrlpO-N_CgYIARAAGBASNwF-L9IrWbfRQmBGZiquqAWz1yVsgD2STDnPz4oAlN8lleqiZeAH_rU4NHRdhVz3bx_wmqU51_Y",
+  "scope": "https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/userinfo.email",
+  "token_type": "Bearer",
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI5YWM2MDFkMTMxZmQ0ZmZkNTU2ZmYwMzJhYWIxODg4ODBjZGUzYjkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MjI5MTE3OTM3MjQtZ2c2MmNyc2RsMzFiaDdqN2p1Z3Y0MTY2dDd0aTNsNmIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MjI5MTE3OTM3MjQtZ2c2MmNyc2RsMzFiaDdqN2p1Z3Y0MTY2dDd0aTNsNmIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDIwODQ5MzA4NDU5MjYxOTg0MTQiLCJoZCI6ImlrYXJ1czNkLmNvbSIsImVtYWlsIjoiaGltYW5zaHUua3VrcmVqYUBpa2FydXMzZC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImhlUmcwQkJjblF6bVpYS3pCUGRhREEiLCJuYW1lIjoiSGltYW5zaHUgS3VrcmVqYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMS0RjRWZFSlpzWk1IZDhYT3kzaUY5RTBBbUlaTmcxQ0lkMHdLaTJQQTU9czk2LWMiLCJnaXZlbl9uYW1lIjoiSGltYW5zaHUiLCJmYW1pbHlfbmFtZSI6Ikt1a3JlamEiLCJsb2NhbGUiOiJlbi1HQiIsImlhdCI6MTY5NjMxMTE1MiwiZXhwIjoxNjk2MzE0NzUyfQ.mCJNBwFNhlMhiC9t-q4fsceaR-5s-fbAzp0ZnE61CmsrNt57wg-bJbx4jSP9m7H2VJzNszIR_0JCRHShWR6iXJXJDDfxMe5sQ9RlHu_jseKtFW7OHhJ_Rds90vGqR77bV_oVTCgiNds2ckW4CGkmnOpnJzWPcJG2vx5kPKHMikRUvFMhPRRqAaiEmDAkLPMVlrc7wZYTbz7CLXAMYlUJwCl7iZkHRZD5NWiQa0kMELwqgwK-stcRj-wVdkxQIb1xNTUniPDYwQrJ0BY-T1FI7NBplmXTzeiEB0Lb3tWAcBs62HbXL3B0vpgheqU1GeTkMBm98RNasHVY3lc-m4lFcQ"
+}", "file": "recipe\\thirdparty\\providers\\utils.py:62"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.730Z", "sdkVer": "0.16.0", "message": "Sending response to client with status code: 200", "file": "utils.py:158"}
+
+com.supertokens {"t": "2023-10-03T05:32:31.730Z", "sdkVer": "0.16.0", "message": "middleware: Ended", "file": "supertokens.py:565"}
+
+[2023-10-03 11:02:31.735] | DEBUG | main | logging_middleware | main.py:156 | Request POST /auth/signinup finished at 1696311151.7351887, elapsed time: 0.63 seconds with request id ikarus-11483431138771052399
+[2023-10-03 11:02:31.738] | INFO | main | add_process_time_header | main.py:169 | Time to execute the api POST http://localhost:8000/auth/signinup is 637.2413635253906 ms
+
+INFO:     127.0.0.1:51508 - "POST /auth/signinup HTTP/1.1" 200 OK
+
+
+
+com.supertokens {"t": "2023-10-03T06:37:11.510Z", "sdkVer": "0.16.0", "message": "Started SuperTokens with debug logging (supertokens.init called)", "file": "supertokens.py:169"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.511Z", "sdkVer": "0.16.0", "message": "app_info: {
+    "api_base_path": "/auth",
+    "api_domain": "http://localhost:8000",
+    "api_gateway_path": "",
+    "app_name": "Ikarus-Nest",
+    "framework": "fastapi",
+    "mode": "asgi",
+    "top_level_api_domain": "localhost",
+    "top_level_website_domain": "localhost",
+    "website_base_path": "/auth",
+    "website_domain": "http://localhost:3000"
+}", "file": "supertokens.py:172"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.511Z", "sdkVer": "0.16.0", "message": "framework: fastapi", "file": "supertokens.py:173"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.511Z", "sdkVer": "0.16.0", "message": "session init: anti_csrf: NONE", "file": "recipe\\session\\recipe.py:115"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.511Z", "sdkVer": "0.16.0", "message": "session init: cookie_domain: localhost", "file": "recipe\\session\\recipe.py:117"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.512Z", "sdkVer": "0.16.0", "message": "session init: cookie_same_site: lax", "file": "recipe\\session\\recipe.py:122"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.512Z", "sdkVer": "0.16.0", "message": "session init: cookie_secure: False", "file": "recipe\\session\\recipe.py:125"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.512Z", "sdkVer": "0.16.0", "message": "session init: refresh_token_path: /auth/session/refresh ", "file": "recipe\\session\\recipe.py:128"}
+
+com.supertokens {"t": "2023-10-03T06:37:11.512Z", "sdkVer": "0.16.0", "message": "session init: session_expired_status_code: 401", "file": "recipe\\session\\recipe.py:132"}
+
+INFO:     Started server process [18892]
+INFO:     Waiting for application startup.
+[2023-10-03 12:07:11.735] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | SuperAdmin role already Present
+[2023-10-03 12:07:11.849] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | ModelsAdmin role already Present
+[2023-10-03 12:07:11.969] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | CampaignsAdmin role already Present
+[2023-10-03 12:07:12.099] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | UserAdmin role already Present
+[2023-10-03 12:07:12.220] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | ContentsAdmin role already Present
+[2023-10-03 12:07:12.328] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | TechAdmin role already Present
+[2023-10-03 12:07:12.439] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | Guest role already Present
+[2023-10-03 12:07:12.599] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | 3DP role already Present
+[2023-10-03 12:07:12.727] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | 3DA role already Present
+[2023-10-03 12:07:12.827] | DEBUG | services.roles_permissions_services | define_startup_roles | roles_permissions_services.py:21 | xyzpermission3_role role already Present
+INFO:     Application startup complete.
+[2023-10-03 12:07:14.249] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-12074055202863036058
+[2023-10-03 12:07:14.253] | DEBUG | main | logging_middleware | main.py:150 | Request GET /auth/authorisationurl started at 1696315034.2532752 with request id ikarus-12074055202863036058
+url http://localhost:8000/auth/authorisationurl
+com.supertokens {"t": "2023-10-03T06:37:14.259Z", "sdkVer": "0.16.0", "message": "middleware: Started", "file": "supertokens.py:486"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.259Z", "sdkVer": "0.16.0", "message": "middleware: requestRID is: thirdpartyemailpassword", "file": "supertokens.py:499"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.260Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: emailverification", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.260Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: session", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.261Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: jwt", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.261Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: thirdpartyemailpassword", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.262Z", "sdkVer": "0.16.0", "message": "middleware: Matched with recipe ID: thirdpartyemailpassword", "file": "supertokens.py:536"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.262Z", "sdkVer": "0.16.0", "message": "middleware: Request being handled by recipe. ID is: /authorisationurl", "file": "supertokens.py:549"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.675Z", "sdkVer": "0.16.0", "message": "Received response with status 200 and body {
+ "issuer": "https://accounts.google.com",
+ "authorization_endpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+ "device_authorization_endpoint": "https://oauth2.googleapis.com/device/code",
+ "token_endpoint": "https://oauth2.googleapis.com/token",
+ "userinfo_endpoint": "https://openidconnect.googleapis.com/v1/userinfo",
+ "revocation_endpoint": "https://oauth2.googleapis.com/revoke",
+ "jwks_uri": "https://www.googleapis.com/oauth2/v3/certs",
+ "response_types_supported": [
+  "code",
+  "token",
+  "id_token",
+  "code token",
+  "code id_token",
+  "token id_token",
+  "code token id_token",
+  "none"
+ ],
+ "subject_types_supported": [
+  "public"
+ ],
+ "id_token_signing_alg_values_supported": [
+  "RS256"
+ ],
+ "scopes_supported": [
+  "openid",
+  "email",
+  "profile"
+ ],
+ "token_endpoint_auth_methods_supported": [
+  "client_secret_post",
+  "client_secret_basic"
+ ],
+ "claims_supported": [
+  "aud",
+  "email",
+  "email_verified",
+  "exp",
+  "family_name",
+  "given_name",
+  "iat",
+  "iss",
+  "locale",
+  "name",
+  "picture",
+  "sub"
+ ],
+ "code_challenge_methods_supported": [
+  "plain",
+  "S256"
+ ],
+ "grant_types_supported": [
+  "authorization_code",
+  "refresh_token",
+  "urn:ietf:params:oauth:grant-type:device_code",
+  "urn:ietf:params:oauth:grant-type:jwt-bearer"
+ ]
+}
+", "file": "recipe\\thirdparty\\providers\\utils.py:40"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.676Z", "sdkVer": "0.16.0", "message": "Sending response to client with status code: 200", "file": "utils.py:158"}
+
+com.supertokens {"t": "2023-10-03T06:37:14.676Z", "sdkVer": "0.16.0", "message": "middleware: Ended", "file": "supertokens.py:565"}
+
+[2023-10-03 12:07:14.678] | DEBUG | main | logging_middleware | main.py:156 | Request GET /auth/authorisationurl finished at 1696315034.6785588, elapsed time: 0.43 seconds with request id ikarus-12074055202863036058
+[2023-10-03 12:07:14.679] | INFO | main | add_process_time_header | main.py:169 | Time to execute the api GET http://localhost:8000/auth/authorisationurl?thirdPartyId=google&redirectURIOnProviderDashboard=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback%2Fgoogle is 426.26452445983887 ms
+
+INFO:     127.0.0.1:49237 - "GET /auth/authorisationurl?thirdPartyId=google&redirectURIOnProviderDashboard=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback%2Fgoogle HTTP/1.1" 200 OK
+[2023-10-03 12:07:21.326] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-10111692664024577697
+[2023-10-03 12:07:21.329] | DEBUG | main | logging_middleware | main.py:150 | Request POST /auth/signinup started at 1696315041.3298757 with request id ikarus-10111692664024577697
+url http://localhost:8000/auth/signinup
+com.supertokens {"t": "2023-10-03T06:37:21.331Z", "sdkVer": "0.16.0", "message": "middleware: Started", "file": "supertokens.py:486"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.331Z", "sdkVer": "0.16.0", "message": "middleware: requestRID is: thirdpartyemailpassword", "file": "supertokens.py:499"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.332Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: emailverification", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.332Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: session", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.332Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: jwt", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.332Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: thirdpartyemailpassword", "file": "supertokens.py:510"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.332Z", "sdkVer": "0.16.0", "message": "middleware: Matched with recipe ID: thirdpartyemailpassword", "file": "supertokens.py:536"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.333Z", "sdkVer": "0.16.0", "message": "middleware: Request being handled by recipe. ID is: /signinup", "file": "supertokens.py:549"}
+
+com.supertokens {"t": "2023-10-03T06:37:21.878Z", "sdkVer": "0.16.0", "message": "Received response with status 200 and body {
+  "access_token": "ya29.a0AfB_byAtmNUaB-YVNgzgYuLfGG81lCOkAbivecFi04edsukwGmkG493cdTu14tQcDXf20nHTnzC61I1rUzQssbnnXkGq1cHA5nRR6Nmv4QlZz_PW5gfXiki5pRXUUXK_vOzbPaqYFu9BAlngGdZIRYJavaTmeBMCo2LTaCgYKAS0SARASFQGOcNnCOqfy79DfBzW7etm05wK-Kw0171",
+  "expires_in": 3599,
+  "refresh_token": "1//0gztRsVBhTno9CgYIARAAGBASNwF-L9IrALVwGO5Xur9bOeYwkcgGfkwedSdxWY6VIaqOqNQ361NErO6CTZaVA2orTk6PEe8Ki-8",
+  "scope": "openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+  "token_type": "Bearer",
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI5YWM2MDFkMTMxZmQ0ZmZkNTU2ZmYwMzJhYWIxODg4ODBjZGUzYjkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5MjI5MTE3OTM3MjQtZ2c2MmNyc2RsMzFiaDdqN2p1Z3Y0MTY2dDd0aTNsNmIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5MjI5MTE3OTM3MjQtZ2c2MmNyc2RsMzFiaDdqN2p1Z3Y0MTY2dDd0aTNsNmIuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI0NTAyMjQyNjM0NDU2NDY4NDIiLCJlbWFpbCI6ImhpbWFuc2hhcm9yYTIwMDFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJfU2VhLXF6YnVlTEo1ZlBwejl2UG5nIiwibmFtZSI6IkhpbWFuc2h1IEt1a3JlamEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVd2SEVWN1dHTzQ5LVh6RS1lbEc2Zks4bW9wbFVKSFFkTkJkVURtdXFnek1nPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkhpbWFuc2h1IiwiZmFtaWx5X25hbWUiOiJLdWtyZWphIiwibG9jYWxlIjoiZW4tR0IiLCJpYXQiOjE2OTYzMTUwNDIsImV4cCI6MTY5NjMxODY0Mn0.LhLMBIo5rScDya7gBEIHeU2nraRCHfKX01OIY2FmYVXg_1kY31Oy3eKC9WjpBFFpZYT7at233V33S3sBn_w7xMBzU96rxcXifLEgvyqDsXGfQ19gGGFfeHqXkwSMgebZdUX-Nh0CYSCA2alAE95U_qyZf0vz7XWQTQ2hgVH0k-6Oz-Upx_0eUhu4pv4Pgo95yYPECywvSrOe7_eLd4vvNWlvBp9wIaLVEaw7eqDhvkLA68K1nlonmjlLV4W9GZraIyo4iO23ob2vYIxWlS5AHBoYO1dqRwcOyXAtvVMR4ayLy5rhFK3JSTLS07T2kfCnzRyq2nTA5h97nQ_El_J7Tw"
+}", "file": "recipe\\thirdparty\\providers\\utils.py:62"}
+
+com.supertokens {"t": "2023-10-03T06:37:22.539Z", "sdkVer": "0.16.0", "message": "Received response with status 200 and body {
+  "sub": "112450224263445646842",
+  "name": "Himanshu Kukreja",
+  "given_name": "Himanshu",
+  "family_name": "Kukreja",
+  "picture": "https://lh3.googleusercontent.com/a/ACg8ocIWvHEV7WGO49-XzE-elG6fK8moplUJHQdNBdUDmuqgzMg\u003ds96-c",
+  "email": "himansharora2001@gmail.com",
+  "email_verified": true,
+  "locale": "en-GB"
+}", "file": "recipe\\thirdparty\\providers\\utils.py:40"}
+
+Thirdparty_Signinup
+[2023-10-03 12:07:22.932] | INFO | services.login_and_signup_overrides | thirdparty_sign_in_up | login_and_signup_overrides.py:57 | New User with Email himansharora2001@gmail.com signed up
+x_request_id ikarus-10111692664024577697
+[2023-10-03 12:07:22.935] | INFO | services.routes_db_services | add_user_to_external_db | routes_db_services.py:20 | Adding user to external db with url: http://localhost:8001/user
+[2023-10-03 12:07:22.936] | DEBUG | services.routes_db_services | add_user_to_external_db | routes_db_services.py:21 | Calling user service with url: http://localhost:8001/user
+[2023-10-03 12:07:22.936] | DEBUG | services.m2m_calls | m2m_request | m2m_calls.py:23 | Making a POST call to url: http://localhost:8001/user
+[2023-10-03 12:07:23.056] | DEBUG | services.m2m_calls | m2m_request | m2m_calls.py:29 | Calling
+payload {'userId': 'ccbb751d-3969-43b9-93df-b42c0df8aeed', 'email': 'himansharora2001@gmail.com'}
+[2023-10-03 12:07:23.655] | INFO | main | set_request_id | main.py:376 | Request ID: ikarus-10005613500163667619
+[2023-10-03 12:07:23.662] | DEBUG | main | logging_middleware | main.py:150 | Request GET /auth/jwt/jwks.json started at 1696315043.6622121 with request id ikarus-10005613500163667619
+url http://localhost:8000/auth/jwt/jwks.json
+com.supertokens {"t": "2023-10-03T06:37:23.666Z", "sdkVer": "0.16.0", "message": "middleware: Started", "file": "supertokens.py:486"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.666Z", "sdkVer": "0.16.0", "message": "middleware: requestRID is: None", "file": "supertokens.py:499"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.667Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: emailverification", "file": "supertokens.py:525"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.667Z", "sdkVer": "0.16.0", "message": "middleware: Checking recipe ID for match: session", "file": "supertokens.py:525"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.668Z", "sdkVer": "0.16.0", "message": "middleware: Matched with recipe ID: session", "file": "supertokens.py:536"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.668Z", "sdkVer": "0.16.0", "message": "middleware: Request being handled by recipe. ID is: /jwt/jwks.json", "file": "supertokens.py:549"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.786Z", "sdkVer": "0.16.0", "message": "Sending response to client with status code: 200", "file": "utils.py:158"}
+
+com.supertokens {"t": "2023-10-03T06:37:23.787Z", "sdkVer": "0.16.0", "message": "middleware: Ended", "file": "supertokens.py:565"}
+
+[2023-10-03 12:07:23.788] | DEBUG | main | logging_middleware | main.py:156 | Request GET /auth/jwt/jwks.json finished at 1696315043.7884498, elapsed time: 0.13 seconds with request id ikarus-10005613500163667619
+[2023-10-03 12:07:23.795] | INFO | main | add_process_time_header | main.py:169 | Time to execute the api GET http://localhost:8000/auth/jwt/jwks.json is 132.9185962677002 ms
+
+INFO:     127.0.0.1:49320 - "GET /auth/jwt/jwks.json HTTP/1.1" 200 OK
+[2023-10-03 12:07:24.079] | DEBUG | services.login_and_signup_overrides | thirdparty_sign_in_up | login_and_signup_overrides.py:84 | User himansharora2001@gmail.com added to to mongoDb Database
+[2023-10-03 12:07:24.208] | DEBUG | services.login_and_signup_overrides | thirdparty_sign_in_up | login_and_signup_overrides.py:110 | UserId ccbb751d-3969-43b9-93df-b42c0df8aeed mapped with mongoId 651bb6a303d75a1b78b8707e
+[2023-10-03 12:07:24.220] | INFO | services.login_and_signup_overrides | thirdparty_sign_in_up | login_and_signup_overrides.py:112 | Adding Initial roles
+[2023-10-03 12:07:24.375] | DEBUG | services.roles_permissions_services | add_authorized_3DP_user_role | roles_permissions_services.py:254 | Assigning 3DP role to himansharora2001@gmail.com
+[2023-10-03 12:07:24.498] | DEBUG | services.roles_permissions_services | add_authorized_3DP_user_role | roles_permissions_services.py:254 | Assigning 3DA role to himansharora2001@gmail.com
+[2023-10-03 12:07:24.597] | DEBUG | services.roles_permissions_services | add_roles_permissions_to_metadata | roles_permissions_services.py:132 | Adding ['3DP', '3DA'] role and its corresponding permissions to the user's metadata
+[2023-10-03 12:07:24.700] | DEBUG | services.roles_permissions_services | add_roles_permissions_to_metadata | roles_permissions_services.py:134 | Metadata Updated
+[2023-10-03 12:07:24.702] | INFO | services.login_and_signup_overrides | thirdparty_sign_in_up | login_and_signup_overrides.py:135 | Initial Startup Roles added successfully
+com.supertokens {"t": "2023-10-03T06:37:24.935Z", "sdkVer": "0.16.0", "message": "createNewSession: Started", "file": "recipe\\session\\session_request_functions.py:225"}
+
+com.supertokens {"t": "2023-10-03T06:37:24.936Z", "sdkVer": "0.16.0", "message": "createNewSession: Wrapping done", "file": "recipe\\session\\session_request_functions.py:232"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.092Z", "sdkVer": "0.16.0", "message": "createNewSession: Access token payload built", "file": "recipe\\session\\session_request_functions.py:252"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.093Z", "sdkVer": "0.16.0", "message": "createNewSession: using transfer method cookie", "file": "recipe\\session\\session_request_functions.py:259"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.094Z", "sdkVer": "0.16.0", "message": "createNewSession: Started", "file": "recipe\\session\\recipe_implementation.py:71"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.253Z", "sdkVer": "0.16.0", "message": "createNewSession: Finished", "file": "recipe\\session\\recipe_implementation.py:81"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.253Z", "sdkVer": "0.16.0", "message": "createNewSession: Session created in core built", "file": "recipe\\session\\session_request_functions.py:294"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.254Z", "sdkVer": "0.16.0", "message": "createNewSession: Cleared old tokens", "file": "recipe\\session\\session_request_functions.py:305"}
+
+com.supertokens {"t": "2023-10-03T06:37:26.254Z", "sdkVer": "0.16.0", "message": "createNewSession: Attached new tokens to res", "file": "recipe\\session\\session_request_functions.py:308"}
+
+<supertokens_python.recipe.thirdpartyemailpassword.interfaces.ThirdPartySignInUpPostOkResult object at 0x000001ADDBB87B50>
+[2023-10-03 12:07:26.255] | INFO | services.login_and_signup_overrides | thirdparty_sign_in_up_post | login_and_signup_overrides.py:292 | Client-Ip is 127.0.0.1
+[2023-10-03 12:07:26.258] | DEBUG | services.login_and_signup_overrides | thirdparty_sign_in_up_post | login_and_signup_overrides.py:297 | getting the device fingerprint cookie from frontend
+x_request_id ikarus-10111692664024577697
+[2023-10-03 12:07:26.260] | INFO | services.login_and_signup_overrides | thirdparty_sign_in_up_post | login_and_signup_overrides.py:320 | New User
+[2023-10-03 12:07:26.263] | DEBUG | services.login_and_signup_overrides | thirdparty_sign_in_up_post | login_and_signup_overrides.py:321 | Adding thirdparty response to database
+Issuer: Google
+[2023-10-03 12:07:26.264] | INFO | services.supertokens_auth_services | thirdparty_response_operation | supertokens_auth_services.py:59 | First Name of user Himanshu, Last name of user Kukreja
+[2023-10-03 12:07:26.265] | DEBUG | services.supertokens_auth_services | thirdparty_response_operation | supertokens_auth_services.py:61 | Adding first name and last name to user's metadata
+[2023-10-03 12:07:26.363] | DEBUG | services.login_and_signup_overrides | thirdparty_sign_in_up_post | login_and_signup_overrides.py:339 | Adding the device fingerprint to database
+[2023-10-03 12:07:27.111] | DEBUG | db.mysql_auth_db_orm | map_fingerprint_with_userid | mysql_auth_db_orm.py:169 | Fingerprint inserted
+[2023-10-03 12:07:27.115] | DEBUG | services.supertokens_auth_services | set_username_bool_to_access_token_payload | supertokens_auth_services.py:94 | Setting Username bool to metadata
+[2023-10-03 12:07:27.230] | DEBUG | services.supertokens_auth_services | set_username_bool_to_access_token_payload | supertokens_auth_services.py:102 | User's Metadata
+[2023-10-03 12:07:27.489] | DEBUG | services.supertokens_auth_services | set_username_bool_to_access_token_payload | supertokens_auth_services.py:109 | Set user_bool False to access_token
+[2023-10-03 12:07:27.492] | DEBUG | services.supertokens_auth_services | session_info_operation | supertokens_auth_services.py:67 | Setting the Session Info in sessions db
+[2023-10-03 12:07:28.208] | INFO | db.mysql_auth_db_orm | insert_session_info | mysql_auth_db_orm.py:102 | SessionInfo inserted successfully
+com.supertokens {"t": "2023-10-03T06:37:28.215Z", "sdkVer": "0.16.0", "message": "Sending response to client with status code: 200", "file": "utils.py:158"}
+
+com.supertokens {"t": "2023-10-03T06:37:28.216Z", "sdkVer": "0.16.0", "message": "middleware: Ended", "file": "supertokens.py:565"}
+
+com.supertokens {"t": "2023-10-03T06:37:28.216Z", "sdkVer": "0.16.0", "message": "Setting access token as cookie", "file": "recipe\\session\\cookie_and_header.py:267"}
+
+com.supertokens {"t": "2023-10-03T06:37:28.217Z", "sdkVer": "0.16.0", "message": "Setting refresh token as cookie", "file": "recipe\\session\\cookie_and_header.py:267"}
+
+[2023-10-03 12:07:28.218] | DEBUG | main | logging_middleware | main.py:156 | Request POST /auth/signinup finished at 1696315048.2187781, elapsed time: 6.89 seconds with request id ikarus-10111692664024577697
+[2023-10-03 12:07:28.221] | INFO | main | add_process_time_header | main.py:169 | Time to execute the api POST http://localhost:8000/auth/signinup is 6891.967535018921 ms
+
+INFO:     127.0.0.1:49245 - "POST /auth/signinup HTTP/1.1" 200 OK
